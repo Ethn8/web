@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+      <meta charset= "UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="css.css" rel="stylesheet">
+      <title>Moodboard</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    </head>
+
+    <body>
+        <div id="main">
+            <button class="openbtn" onclick="toggleNavAndAnimate(this)">
+                Menu
+                <div class="container_kda open-icon">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </button>
+        </div>
+        <div id="mySidebar" class="sidebar">
+            <a href="./index.html">Accueil</a>
+            <a href="./cv.html">CV</a>
+            <a href="./portfolio.html">Portfolio</a>
+            <a class="no-click">Moodboard</a>
+        </div>
+
+        <div class="gallery-mb">
+            <!-- Chaque UL est un "cube" d'image avec un effet 3D au survol -->
+            <ul class="img-mb">
+                <li class="pictur_mb">A</li>
+                <li class="pictur_mb">B</li>
+                <li class="pictur_mb">C</li>
+                <li class="pictur_mb">D</li>
+                <li class="pictur_mb">E</li>
+                <li class="pictur_mb">6</li>
+                <li class="pictur_mb">7</li>
+                <li class="pictur_mb">8</li>
+                <li class="pictur_mb">9</li>
+            </ul>
+            <ul class="img-mb">
+                <li class="pictur_mb">A</li>
+                <li class="pictur_mb">B</li>
+                <li class="pictur_mb">C</li>
+                <li class="pictur_mb">D</li>
+                <li class="pictur_mb">E</li>
+                <li class="pictur_mb">6</li>
+                <li class="pictur_mb">7</li>
+                <li class="pictur_mb">8</li>
+                <li class="pictur_mb">9</li>
+            </ul>
+            <ul class="img-mb">
+                <li class="pictur_mb">A</li>
+                <li class="pictur_mb">B</li>
+                <li class="pictur_mb">C</li>
+                <li class="pictur_mb">D</li>
+                <li class="pictur_mb">E</li>
+                <li class="pictur_mb">6</li>
+                <li class="pictur_mb">7</li>
+                <li class="pictur_mb">8</li>
+                <li class="pictur_mb">9</li>
+            </ul>
+            <ul class="img-mb">
+                <li class="pictur_mb">A</li>
+                <li class="pictur_mb">B</li>
+                <li class="pictur_mb">C</li>
+                <li class="pictur_mb">D</li>
+                <li class="pictur_mb">E</li>
+                <li class="pictur_mb">6</li>
+                <li class="pictur_mb">7</li>
+                <li class="pictur_mb">8</li>
+                <li class="pictur_mb">9</li>
+            </ul>
+            <ul class="img-mb">
+                <li class="pictur_mb">A</li>
+                <li class="pictur_mb">B</li>
+                <li class="pictur_mb">C</li>
+                <li class="pictur_mb">D</li>
+                <li class="pictur_mb">E</li>
+                <li class="pictur_mb">6</li>
+                <li class="pictur_mb">7</li>
+                <li class="pictur_mb">8</li>
+                <li class="pictur_mb">9</li>
+            </ul>
+            <ul class="img-mb">
+                <li class="pictur_mb">A</li>
+                <li class="pictur_mb">B</li>
+                <li class="pictur_mb">C</li>
+                <li class="pictur_mb">D</li>
+                <li class="pictur_mb">E</li>
+                <li class="pictur_mb">6</li>
+                <li class="pictur_mb">7</li>
+                <li class="pictur_mb">8</li>
+                <li class="pictur_mb">9</li>
+            </ul>
+            <ul class="img-mb">
+                <li class="pictur_mb">A</li>
+                <li class="pictur_mb">B</li>
+                <li class="pictur_mb">C</li>
+                <li class="pictur_mb">D</li>
+                <li class="pictur_mb">E</li>
+                <li class="pictur_mb">6</li>
+                <li class="pictur_mb">7</li>
+                <li class="pictur_mb">8</li>
+                <li class="pictur_mb">9</li>
+            </ul>
+            <ul class="img-mb">
+                <li class="pictur_mb">A</li>
+                <li class="pictur_mb">B</li>
+                <li class="pictur_mb">C</li>
+                <li class="pictur_mb">D</li>
+                <li class="pictur_mb">E</li>
+                <li class="pictur_mb">6</li>
+                <li class="pictur_mb">7</li>
+                <li class="pictur_mb">8</li>
+                <li class="pictur_mb">9</li>
+            </ul>
+        </div>
+
+        <script>
+            // Fonction pour ouvrir/fermer la barre latérale du menu
+            function toggleNavAndAnimate(x) {
+                const sidebar = document.getElementById("mySidebar");
+                const main = document.getElementById("main");
+                const menuIcon = x.querySelector(".container_kda.open-icon");
+
+                if (sidebar.style.width === "250px") { // Si la barre est ouverte, la ferme
+                    sidebar.style.width = "0";
+                    main.style.marginLeft = "0";
+                    menuIcon.classList.remove("change"); // Transforme le X en barres
+                } else { // Si la barre est fermée, l'ouvre
+                    sidebar.style.width = "250px";
+                    main.style.marginLeft = "250px";
+                    menuIcon.classList.add("change"); // Transforme les barres en X
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const gallery = document.querySelector('.gallery-mb');
+                const ulElements = gallery.querySelectorAll('ul');
+
+                // Définir la marge de sécurité (en pourcentage de la zone .gallery)
+                // Cela créera une zone où les images ne pourront pas aller
+                const safeZonePadding = 20; // 10% de chaque côté (haut, bas, gauche, droite)
+
+                ulElements.forEach(ul => {
+                    // Calculer les dimensions disponibles pour le positionnement après avoir soustrait le padding
+                    const availableWidth = 100 - (2 * safeZonePadding);
+                    const availableHeight = 100 - (2 * safeZonePadding);
+
+                    // Génère des positions aléatoires dans la zone délimitée
+                    const randomTop = safeZonePadding + (Math.random() * availableHeight);
+                    const randomLeft = safeZonePadding + (Math.random() * availableWidth);
+
+                    ul.style.position = 'absolute'; // Assure le positionnement absolu
+                    ul.style.top = `${randomTop}%`;
+                    ul.style.left = `${randomLeft}%`;
+
+                    // Applique un décalage basé sur la taille de l'élément pour le centrer approximativement sur le point aléatoire
+                    // Cela évite que le coin supérieur gauche ne soit toujours le point de référence
+                    ul.style.transform = `translate(-50%, -50%) rotateX(40deg)`; // Centre l'élément sur son top/left aléatoire et garde la rotation 3D
+
+                    // Ajoute un z-index aléatoire pour un léger chevauchement plus intéressant
+                    ul.style.zIndex = Math.floor(Math.random() * 10);
+                });
+
+                // Optionnel : Ajoute une animation continue et subtile de flottement avec anime.js
+                // Chaque élément se déplace légèrement de manière aléatoire
+                anime({
+                    targets: ulElements,
+                    translateX: function() { return anime.random(-25, 25); }, // Déplace aléatoirement de +/- 25px horizontalement
+                    translateY: function() { return anime.random(-25, 25); }, // Déplace aléatoirement de +/- 25px verticalement
+                    rotate: function() { return anime.random(-5, 5); }, // Légère rotation aléatoire pour plus de dynamisme
+                    duration: function() { return anime.random(3000, 7000); }, // Durée de l'animation entre 3 et 7 secondes
+                    easing: 'easeInOutSine', // Ralentit aux début et fin du mouvement
+                    direction: 'alternate', // Anime dans un sens puis dans l'autre
+                    loop: true, // Boucle indéfiniment
+                    delay: anime.stagger(200) // Décalle le début de l'animation pour chaque élément
+                });
+
+
+                // Nouveau code pour l'alternance de la couleur de fond
+                const bodyElement = document.body;
+                const colors = [
+                    '#4E2C4F', 
+                    '#8E8E8E', 
+                    '#FDC9C9', 
+                    '#000000'  
+                ];
+                let currentColorIndex = 0;
+
+                function changeBackgroundColor() {
+                    currentColorIndex = (currentColorIndex + 1) % colors.length;
+                    bodyElement.style.backgroundColor = colors[currentColorIndex];
+                }
+
+                // Change la couleur toutes les 5 secondes (5000 millisecondes)
+                setInterval(changeBackgroundColor, 5000);
+
+                // Applique la couleur initiale au chargement
+                bodyElement.style.backgroundColor = colors[currentColorIndex];
+
+            });
+        </script>
+    </body>
+</html>

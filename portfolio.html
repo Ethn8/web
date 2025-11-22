@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+      <meta charset= "UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="css.css" rel="stylesheet">
+      <title>Portfolio</title>
+    </head>
+
+    <body>
+        <div class="progress-pf">
+        </div>
+        <div id="main">
+            <button class="openbtn" onclick="toggleNavAndAnimate(this)">
+                Menu
+                <div class="container_kda open-icon">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </button>
+        </div>
+        <div id="mySidebar" class="sidebar">
+            <a href="./index.html">Accueil</a>
+            <a href="./cv.html">CV</a>
+            <a class="no-click">Portfolio</a>
+            <a href="./moodboard.html">Moodboard</a>
+        </div>
+  
+        <script>
+            function toggleNavAndAnimate(x) {
+                const sidebar = document.getElementById("mySidebar");
+                const main = document.getElementById("main");
+                const menuIcon = x.querySelector(".container_kda.open-icon");
+    
+                if (sidebar.style.width === "250px") { // If sidebar is open, close it
+                    sidebar.style.width = "0";
+                    main.style.marginLeft = "0";
+                    menuIcon.classList.remove("change"); // Transform X back to bars
+                } else { // If sidebar is closed, open it
+                    sidebar.style.width = "250px";
+                    main.style.marginLeft = "250px";
+                    menuIcon.classList.add("change"); // Transform bars to X
+                }
+            }
+        </script>
+
+        <div class="example">
+            <section class="scroll-section">
+                <pre>1 année IIM</pre>
+
+            </section>
+            <section class="scroll-section">
+                <pre>Blender</pre>
+
+                <div class="carousel-container">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-slide active">
+                            <img src="./img/lego.png" alt="Lego licorne" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="sketchfab-embed-wrapper"> 
+                                <iframe title="Genji" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/7936f7c13ab841dda867ed04db6e9af8/embed?ui_theme=dark"> 
+                                </iframe> 
+                                <p class="genji"> 
+                                    <a href="https://sketchfab.com/3d-models/genji-7936f7c13ab841dda867ed04db6e9af8?utm_medium=embed&utm_campaign=share-popup&utm_content=7936f7c13ab841dda867ed04db6e9af8" target="_blank" rel="nofollow" class="credits"> Genji 
+                                    </a>
+                                    <a href="https://sketchfab.com/n7legion?utm_medium=embed&utm_campaign=share-popup&utm_content=7936f7c13ab841dda867ed04db6e9af8" target="_blank" rel="nofollow" class="credits">by N7Legion 
+                                    </a> 
+                                    <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=7936f7c13ab841dda867ed04db6e9af8" target="_blank" rel="nofollow" class="credits">on Sketchfab
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="module">
+                        import { animate, press, hover } from "https://cdn.jsdelivr.net/npm/motion@12.16.0/+esm"
+                    
+                        const gestureState = new WeakMap()
+                    
+                        const transition = { type: "spring", stiffness: 500, damping: 25 }
+                    
+                        const initialState = {
+                            isHovered: false,
+                            isPressed: false,
+                        }
+                    
+                        function setGesture(element, update) {
+                            const state = gestureState.get(element) || { ...initialState }
+                            const newState = { ...state, ...update }
+                            gestureState.set(element, newState)
+                    
+                            let scale = 1
+                            if (newState.isPressed) {
+                                scale = 0.8
+                            } else if (newState.isHovered) {
+                                scale = 1.2
+                            }
+                    
+                            animate(element, { scale }, transition)
+                        }
+                    
+                        hover(".carousel-control", (element) => {
+                            setGesture(element, { isHovered: true })
+                            return () => setGesture(element, { isHovered: false })
+                        })
+                    
+                        press(".carousel-control", (element) => {
+                            setGesture(element, { isPressed: true })
+                            return () => setGesture(element, { isPressed: false })
+                        })
+                    </script>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-control next-btn"> <img src="./img/arrow.png" loading="lazy"></button>
+                </div>
+                <script src="script.js"></script> 
+            </section>
+
+            <section class="scroll-section">
+                <pre>Audiovisuelle</pre>
+                <div class="video"><video src="./videos/travail_sur_mesure.mp4" controls width="80%" loading="lazy"></video></div>
+            </section>
+            <section class="scroll-section">
+                <pre>Game</pre> 
+                <div class="content-area">
+                    <div class="pdf-item">
+                        <p>Level design</p>
+                        <a href="https://ethn8.github.io/KDA/Level_design.pdf" download>
+                            <img src="./img/pdf.png" alt="Level Design PDF" loading="lazy">
+                        </a>
+                    </div>
+                    
+                    <div class="center-content"> <div id="three-container">
+                    </div>
+
+                        <div class="play-item">
+                            <p>PLAY</p>
+                            <a href="./game.html">
+                                <img src="./img/menu_game.png" alt="Bouton Play" loading="lazy">
+                            </a>
+                        </div>
+                    </div>
+            
+                    <div class="pdf-item">
+                        <p>Game Concept</p>
+                        <a href="https://ethn8.github.io/KDA/Game_Concept_KDA.pdf" download>
+                            <img src="./img/pdf.png" alt="Game Concept PDF" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </div>
+
+        <script type="module">
+            import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@12.16.0/+esm"
+
+            inView(".scroll-section pre", (element) => {
+                animate(
+                    element,
+                    { opacity: 1, x: [-100, 0] },
+                    {
+                        duration: 0.9,
+                        easing: [0.17, 0.55, 0.55, 1],
+                    }
+                )
+                return () => animate(element, { opacity: 0, x: -100 })
+            })
+        </script>
+
+        <script type="module">
+            import * as THREE from "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js"
+            import { animate, frame } from "https://cdn.jsdelivr.net/npm/motion@12.16.0/+esm"
+
+            const maine = document.getElementById("three-container")
+            const scene = new THREE.Scene({ alpha: true })
+            const camera = new THREE.PerspectiveCamera(
+                25,
+                maine.offsetWidth / maine.offsetHeight,
+                0.1,
+                1000
+            )
+            const renderer = new THREE.WebGLRenderer({ antialias: true })
+            renderer.setSize(maine.offsetWidth, maine.offsetHeight)
+            maine.appendChild(renderer.domElement)
+
+            // 1. Créer un chargeur de texture
+            const textureLoader = new THREE.TextureLoader()
+
+            // 2. Charger votre image 'Logo_KDA.png'
+            // Assurez-vous que 'Logo_KDA.png' est dans le même répertoire que votre fichier HTML
+            textureLoader.load('img/Logo_KDA.png', function(texture) {
+                // Obtenir les dimensions de l'image pour ajuster la géométrie si nécessaire
+                // Pour un PlaneGeometry, vous voudrez peut-être maintenir les proportions de l'image
+                const imageAspectRatio = texture.image.width / texture.image.height;
+
+                const geometry = new THREE.BoxGeometry(1, 1, 1); // Crée un plan avec les proportions de l'image
+
+                // 4. Créer un material avec la texture
+                const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
+
+                const imagePlane = new THREE.Mesh(geometry, material);
+
+                renderer.setClearColor(0xffffff, 0); // Rend le fond transparent
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(2, 2, 2);
+                const light = new THREE.AmbientLight(0x404040); // soft white light
+                scene.add(light);
+                scene.add(directionalLight);
+                scene.add(imagePlane); // Ajoutez l'imagePlane à la scène
+
+                camera.position.z = 5; // Ajustez la position de la caméra si l'image est trop grande ou trop petite
+
+                function rad(degrees) {
+                    return degrees * (Math.PI / 180);
+                }
+
+                /**
+                 * Create Three.js render loop using Motion's frameloop
+                 */
+                frame.render(() => renderer.render(scene, camera), true);
+
+                /**
+                 * Animate image plane rotation
+                 */
+                animate(
+                    imagePlane.rotation, // Animer la rotation de imagePlane
+                    // Vous pouvez ajuster les axes de rotation (x, y, z) et la durée/vitesse
+                    { y: rad(360), z: rad(360) }, // Rotation autour de l'axe Y et Z
+                    { duration: 10, repeat: Infinity, ease: "linear" }
+                );
+            },
+            // Fonction de rappel pour les erreurs
+            function ( err ) {
+                console.error( 'An error happened loading the texture:', err );
+            });
+
+        </script>
+    </body>
+</html>

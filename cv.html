@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+
+        <meta charset= "UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="css.css" rel="stylesheet">
+        <title>CV</title>
+
+    </head>
+    <body>
+        <svg width="0" height="0">
+            <filter id="motion-blur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="1 0" />
+            </filter>
+          </svg>
+
+        <article id="gallery-CV">
+            <header>    
+                <h2>Curriculum Vitæ</h2>
+            </header>
+
+            <div id="main">
+                <button class="openbtn" onclick="toggleNavAndAnimate(this)">
+                    Menu
+                    <div class="container_kda open-icon">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                </button>
+            </div>
+            <div id="mySidebar" class="sidebar">
+                <a href="./index.html">Accueil</a>
+                <a class="no-click">CV</a>
+                <a href="./portfolio.html">Portfolio</a>
+                <a href="./moodboard.html">Moodboard</a>
+          </div>      
+      
+            <script>
+                function toggleNavAndAnimate(x) {
+                    const sidebar = document.getElementById("mySidebar");
+                    const main = document.getElementById("main");
+                    const menuIcon = x.querySelector(".container_kda.open-icon");
+        
+                    if (sidebar.style.width === "250px") { // If sidebar is open, close it
+                        sidebar.style.width = "0";
+                        main.style.marginLeft = "0";
+                        menuIcon.classList.remove("change"); // Transform X back to bars
+                    } else { // If sidebar is closed, open it
+                        sidebar.style.width = "250px";
+                        main.style.marginLeft = "250px";
+                        menuIcon.classList.add("change"); // Transform bars to X
+                    }
+                }
+            </script>
+    
+            <section class="img-group-container">
+                <div>
+                    <ul class="img-group">
+                        <div class="img-container-title">
+                            <img src="./img/photo_profile.webp" loading="lazy">
+                            <br><br>
+                            <h3>Beudaert Tom</h3>
+                        </div>
+                        <div class="img-container">
+                            <div class="parcours-wrapper">
+                                <h3 class="parcours-trigger">Parcours scolaire</h3>
+                                <div class="img-container-text">
+                                    <p>
+                                        Bachelord Game Prog (en cours)
+                                        <br><br>2021 Licence Pro SARII
+                                        <br><br>2020 BTS électrotechnique
+                                        <br><br>2018 Bac Pro ELEEC
+                                        <br><br>2017 BEP ELEEC
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="img-container">
+                            <div class="parcours-wrapper">
+                                <h3 class="parcours-trigger">Parcours professionnel</h3>
+                                <div class="img-container-text">
+                                    <div class="job-entry">
+                                        <span>Employé commercial à l’épicerie au Leclerc de Blagnac.</span>
+                                        <p class="date">Janvier 2023 - Janvier 2024, Blagnac(31)</p>
+                                    </div>
+                                    <div class="job-entry">
+                                        <span>Préparateur de commandes au sein de l’entreprise Passion Beauté.</span>
+                                        <p class="date">Septembre 2021 - Décembre 2021, Rochecorbon(37)</p>
+                                    </div>
+                                    <div class="job-entry">
+                                        <span>Automaticien en alternance au sein de Remy-Cointreau.</span>
+                                        <p class="date">Septembre 2020 - Août 2021, Angers (49)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="img-container">
+                            <div class="parcours-wrapper">
+                                <h3 class="parcours-trigger">Langage et Activités</h3>
+                                <div class="img-container-text">
+                                    <p>
+                                        Langages :
+                                        <br><br>C#, JavaScript, HTML/CSS, Python
+                                        <br><br><br>Anglais A2
+                                        <br><br><br>Capitaine d'une équipe semi-pro Overwatch
+                                        <br><br><br>Game programmeur
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </section>
+            <div class="progress">
+            </div>    
+            <footer>
+                <div class="flip-card">
+                    <div class="flip-card-inner">            
+                        <div class="flip-card-front">    
+                            <img src="./img/E.png" title="Ethno" width="252px" height="252px" loading="lazy">    
+                        </div>                            
+                        <div class="flip-card-back"> 
+                            <br>   
+                            <h1>Contacte</h1>     
+                            <a class="botnav" href="https://www.google.com/maps/search/?api=1&query=30+Boulevard+Albert+Einstein,+Nantes,+France" target="blank"><img src="./img/position.png" loading="lazy"><span> 30 Boulevard Albert Einstein</span></a>
+                            <a class="botnav" href="mailto:tom.beudaert@laposte.net.com" title="Mail"> <img src="./img/logo_mail.png"> <span> tom.beudaert@laposte.net</span></a>
+                            <a class="botnav" href="tel:+330618326954" title="Phone" > <img src="./img/phone.png" loading="lazy"><span> 06 18 32 69 54</span></a>
+                            <a class="botnav" href="https://www.linkedin.com/in/tom-beudaert-19a05b247/" title="Linkedin"> <img src="./img/logo_linkedin.png" loading="lazy"><span> Linkedin</span></a>
+                            <a class="botnav" href="./img/CV.pdf" title="CV"> <img src="./img/cv_carte.png" loading="lazy"><span>Mon CV</span></a>
+                        </div>    
+                    </div>                        
+                </div>    
+            </footer>
+    
+        </article>
+    
+        <script type="module">
+            import { animate, scroll } from "https://cdn.jsdelivr.net/npm/motion@12.16.0/+esm"
+    
+            const items = document.querySelectorAll(".img-container")
+    
+            // Animate gallery horizontally during vertical scroll
+            scroll(
+                animate(".img-group", {
+                    transform: ["none", `translateX(-${items.length - 1}00vw)`],
+                }),
+                { target: document.querySelector(".img-group-container") }
+            )
+    
+            // Progress bar representing gallery scroll
+            scroll(animate(".progress", { scaleX: [0, 1] }), {
+                target: document.querySelector(".img-group-container"),
+            })
+        </script>
+    </body>  
+</html>    
